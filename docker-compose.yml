@@ -15,7 +15,5 @@ services:
     cap_add:
       - SYS_PTRACE
     privileged: true
-    depends_on:
-      - 'python'
     networks:
       halo:
