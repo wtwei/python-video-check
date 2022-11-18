@@ -16,7 +16,6 @@ services:
       - SYS_PTRACE
     privileged: true
     depends_on:
-      - 'php'
-      # - 'php73'
+      - 'python'
     networks:
       halo:
