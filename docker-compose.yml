@@ -1,0 +1,22 @@
+version: '3.7'
+
+networks:
+  halo:
+    driver: bridge
+
+services:
+  python:
+    image: halobear/python:3.9-fpm-slim
+    container_name: 'python'
+    volumes:
+      - '/volume2/视频部2/摄像师上传/2022年11月://volume'
+      - './src:/app:rwx'
+    restart: always
+    cap_add:
+      - SYS_PTRACE
+    privileged: true
+    depends_on:
+      - 'php'
+      # - 'php73'
+    networks:
+      halo:

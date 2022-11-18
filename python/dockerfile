@@ -1,0 +1,16 @@
+FROM python:3.9-slim
+
+ARG TZ=Asia/Shanghai
+
+RUN /usr/local/bin/python -m pip install --upgrade pip \
+    #
+    # Install opencv    
+    pip install opencv-python -i https://pypi.tuna.tsinghua.edu.cn/simple \
+    && pip install opencv-python-headless -i https://pypi.tuna.tsinghua.edu.cn/simple \
+    && pip install requests \
+    #
+    # ---------- clear works ----------
+    && rm -rf /var/cache/apk/* /tmp/* /usr/share/man 
+
+COPY ./src/ /app/
+WORKDIR /app
